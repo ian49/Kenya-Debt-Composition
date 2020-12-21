@@ -30,7 +30,7 @@ ggplot(clean_debt,aes(x=Year,y=Amount,fill=Type))+
 ggplot(clean_debt,aes(Year,Amount,fill=Type))+
   geom_col(position = 'dodge',width = .9)+
   scale_fill_brewer(type = 'qual',palette=6,labels=c('Domestic','External','Total'))+
-  labs(title ='Kenya Debt Composition by Type',x='Year',y="Amount,Ksh Billion '00",
+  labs(title ='Kenya Debt Composition by Type 09/`99-06/`20',x='Year',y="Amount,Ksh Billion '00",
        caption = 'Compiled by @mutwiriian\nSource:Central Bank of Kenya')+
   geom_text(aes(label=round(Amount/100000,0)),position = position_dodge(.8),
             vjust=-0.2,hjust=.5,size=3.5)+
