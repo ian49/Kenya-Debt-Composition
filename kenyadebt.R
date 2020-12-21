@@ -1,6 +1,6 @@
 ####Kenya Debt composition####
 library(tidyverse)
-debt <- read.csv("E:/Workspace/cbkdebt.csv",sep=",",header = T)
+debt <- read.csv("../cbkdebt.csv",sep=",",header = T)
 colnames(debt)[1] <- "Year"
 for(i in 3:5){
   debt[,i] <- as.numeric(lapply(debt[,i],gsub,pattern=',',replacement=''))
