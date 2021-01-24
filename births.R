@@ -1,9 +1,11 @@
 library(tidyverse)
 library(magrittr)
-births1 <- rKenyaCensus::V4_T2.40[-c(1:3),]%>%
+#reading in the data
+births <- rKenyaCensus::V4_T2.40[-c(1:3),]%>%
   select(-c(2,5,6))%>%
   arrange(desc(Percent_Notified))
-births1[c(1:23),]%>%
+
+births[c(1:23),]%>%
   pivot_longer(cols = c(2,3),values_to = 'Count',
                                           names_to = "Births")%>%
   ggplot(aes(reorder(County,Count),Count,fill=Births))+
@@ -17,7 +19,7 @@ births1[c(1:23),]%>%
   theme(legend.position = c(.8,.6))+
   coord_flip()
 
-births1[-c(1:23),]%>%
+births[-c(1:23),]%>%
   pivot_longer(cols = c(2,3),values_to = 'Count',
                names_to = "Births")%>%
   ggplot(aes(reorder(County,Count),Count,fill=Births))+
